@@ -29,11 +29,11 @@ pip install -r requirements.txt
 #### Step3: 填入课程信息
 - 在 config/lesson.json 中输入想要选择的课程代码
 
+*Example*
 ```json
 {
     "LessonID": [
-        "COMP130166.02" // Just an Example
-        ...
+        "COMP130166.02"
     ]
 }
 ```

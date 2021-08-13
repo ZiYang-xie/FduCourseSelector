@@ -1,0 +1,15 @@
+{
+    "selCourseParams": {
+        "username": "",
+        "password": "",
+        "session_locale": "zh_CN"
+    },
+    "formData": {
+        "lessonNo": "" ,
+        "courseCode": "",
+        "courseName": ""
+    },
+    "mainPageData": {
+        "electionProfile.id": 1609
+    }
+}

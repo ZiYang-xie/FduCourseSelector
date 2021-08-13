@@ -1,0 +1,3 @@
+easyocr
+numpy
+pillow

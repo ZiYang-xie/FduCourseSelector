@@ -1,3 +1,4 @@
+#coding=UTF-8
 import requests
 import re
 import json
@@ -7,6 +8,7 @@ Request 的异常处理封装
 """
 class Request:
     def __init__(self):
+        requests.adapters.DEFAULT_RETRIES = 5
         pass
     
     def Post(self, url, cookies = None, data = None, params = None, allow_redirects = True, timeout = 20, ErrMsg = None):

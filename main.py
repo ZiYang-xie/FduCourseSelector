@@ -1,8 +1,10 @@
+#coding=UTF-8
 import json
 import re
 import base64
 from cookie_getter import CookieGetter
 from captcha import read_captcha
+from email_sender import sendEmail
 from utils import *
 
 _, URL_DICT = ReadNetWorkJson()
@@ -28,11 +30,14 @@ class CourseSearcher(CookieGetter):
         res = self.searchCourse(lessonNo)
         course_no, course_id, course_name = findClassList(res.text, lessonNo)
         if isCourseAvailable(res.text, course_no):
-            print(f"课程 [{course_name} {course_id}], 可选, 正在选课中")
+            info = "课程 [" + course_name + " " + course_id +"], 可选, 正在选课中"
+            print(info)
+            sendEmail(info)
             result = self.selCourse(course_no)
             return result
         else:
-            print(f"课程 [{course_name} {course_id}], 目前不可选")
+            info = "课程 [" + course_name + " " + course_id +"], 目前不可选"
+            print(info)
             return False
         
     def searchCourse(self, lessonNo):
@@ -88,4 +93,5 @@ class CourseSearcher(CookieGetter):
 
 if __name__ == "__main__":
     launcher = CourseSearcher()
-    m = launcher.RunScript()
+    launcher.RunScript()
+            

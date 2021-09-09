@@ -1,3 +1,4 @@
+#coding=UTF-8
 import easyocr
 import io
 import numpy

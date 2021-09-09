@@ -95,7 +95,7 @@ def isCourseAvailable(raw_str, lessonNo):
     res = re.findall(r"'(\d+?)':{sc:(\d+?),lc:(\d+?)}", raw_str)
     for class_tuple in res:
         if lessonNo == class_tuple[0]:
-            return class_tuple[1] < class_tuple[2]
+            return int(class_tuple[1]) < int(class_tuple[2])
 
 if __name__ == '__main__':
     ReadLessonJson()

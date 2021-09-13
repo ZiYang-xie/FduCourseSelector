@@ -13,6 +13,7 @@ class CourseSearcher(CookieGetter):
     def __init__(self):
         super(CourseSearcher, self).__init__()
         self.mainUrl = URL_DICT['MAIN_PAGE']
+        self.xkPageUrl = URL_DICT['XK_PAGE']
         self.baseUrl = URL_DICT['BASE_URL']
         self.selCourseUrl = URL_DICT['SELECT_COURSE']
         self.captchaUrl = URL_DICT['CAPTCHA']
@@ -32,7 +33,7 @@ class CourseSearcher(CookieGetter):
         if isCourseAvailable(res.text, course_no):
             info = "课程 [" + course_name + " " + course_id +"], 可选, 正在选课中"
             print(info)
-            sendEmail(info)
+            #sendEmail(info)
             result = self.selCourse(course_no)
             return result
         else:
@@ -55,15 +56,15 @@ class CourseSearcher(CookieGetter):
     
     def direct_to_selCoursePage(self):
         self.Get(
-            url=self.mainUrl,
+            url=self.xkPageUrl,
             cookies=self.cookies,
-            ErrMsg="Get Main Page Error (getCourseNoAndId)"
+            ErrMsg="Get Main Page Error (getCourseNoAndId) Get"
         )
         self.Post(
             url=self.mainUrl,
             cookies=self.cookies,
             data = self.main_page_data,
-            ErrMsg="Into Xk Page Error (getCourseNoAndId)"
+            ErrMsg="Into Xk Page Error (getCourseNoAndId) Post"
         )
                 
     # 抢课（捡漏）
@@ -79,7 +80,8 @@ class CourseSearcher(CookieGetter):
             data=form_data,
             ErrMsg="selCourse Error (selCourse)"
         )
-        print(response.content.decode(encoding='utf-8'))
+        #print(response.content.decode(encoding='utf-8'))
+        print("选课成功")
         
     def getCaptcha(self):
         response = self.Get(
@@ -87,7 +89,7 @@ class CourseSearcher(CookieGetter):
             cookies=self.cookies,
             ErrMsg="Get Captcha Error (getCaptcha)"
         )
-        captcha = read_captcha(response.content)
+        captcha =  read_captcha(response.content)
         return captcha
     
 

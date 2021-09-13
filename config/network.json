@@ -7,8 +7,9 @@
         "XK": "http://xk.fudan.edu.cn/",
         "LOGIN": "https://xk.fudan.edu.cn/xk/login.action",
         "MAIN_PAGE": "https://xk.fudan.edu.cn/xk/stdElectCourse!defaultPage.action",
-        "BASE_URL": "https://xk.fudan.edu.cn/xk/stdElectCourse!queryLesson.action?profileId=1609",
-        "SELECT_COURSE": "https://xk.fudan.edu.cn/xk/stdElectCourse!batchOperator.action?profileId=1609",
-        "CAPTCHA": "https://xk.fudan.edu.cn/xk/captcha/image.action"
+        "BASE_URL": "https://xk.fudan.edu.cn/xk/stdElectCourse!queryLesson.action?profileId=1608",
+        "SELECT_COURSE": "https://xk.fudan.edu.cn/xk/stdElectCourse!batchOperator.action?profileId=1608",
+        "CAPTCHA": "https://xk.fudan.edu.cn/xk/captcha/image.action",
+        "XK_PAGE": "https://xk.fudan.edu.cn/xk/stdElectCourse.action?_=1631526387065"
     }
 }

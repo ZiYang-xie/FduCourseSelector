@@ -46,6 +46,7 @@ class CourseSearcher(CookieGetter):
         form['lessonNo'] = lessonNo
         
         self.direct_to_selCoursePage() # 验证步骤，必须执行，不然会被服务器反制
+        
         res = self.Post(
             url=self.baseUrl,
             cookies=self.cookies,

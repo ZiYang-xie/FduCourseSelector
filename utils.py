@@ -2,6 +2,7 @@
 import requests
 import re
 import json
+from requests.models import PreparedRequest
 
 """ 
 Request 的异常处理封装 
@@ -46,6 +47,10 @@ class Request:
         
         return req
     
+def AddParam(url, params):
+    req = PreparedRequest()
+    req.prepare_url(url, params)
+    return req.url
     
 def ReadJson(filePath):
     with open(filePath, "r") as f: 
@@ -100,4 +105,8 @@ def isCourseAvailable(raw_str, lessonNo):
             return int(class_tuple[1]) < int(class_tuple[2])
 
 if __name__ == '__main__':
-    ReadLessonJson()
+    import time
+    url = "https://xk.fudan.edu.cn/xk/stdElectCourse.action"
+    params = {'_':int(time.time())}
+    res = AddParam(url, params)
+    import pdb; pdb.set_trace()

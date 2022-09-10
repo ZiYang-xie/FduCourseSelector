@@ -10,6 +10,10 @@
         "courseName": ""
     },
     "mainPageData": {
-        "electionProfile.id": 1904
+        "electionProfile.id": 0
+    },
+    "captcha_ret": {
+        "moveEnd_X": 0,
+        "wbili": 0.0
     }
 }

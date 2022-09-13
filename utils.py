@@ -62,10 +62,10 @@ def ReadNetWorkJson():
 
 def ReadAccountJson():
     json_data = ReadJson('./config/account.json')
-    username, password = (json_data['UserName'], json_data['PassWord'])
+    username, password, secondMajor = (json_data['UserName'], json_data['PassWord'], json_data['SecondMajor'])
     if(username == '' or password == ''):
         raise Exception('请在 data/account.json 中输入用户名和密码')
-    return (username, password)
+    return (username, password, secondMajor)
 
 def ReadLessonJson():
     json_data = ReadJson('./config/lesson.json')

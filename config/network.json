@@ -10,6 +10,7 @@
         "BASE_URL": "https://xk.fudan.edu.cn/xk/stdElectCourse!queryLesson.action",
         "SELECT_COURSE": "https://xk.fudan.edu.cn/xk/stdElectCourse!batchOperator.action",
         "CAPTCHA": "https://xk.fudan.edu.cn/xk/stdElectCourse!getImgSwipe.action",
-        "XK_PAGE": "https://xk.fudan.edu.cn/xk/stdElectCourse.action"
+        "XK_PAGE": "https://xk.fudan.edu.cn/xk/stdElectCourse.action",
+        "SECONDMAJOR_PAGE": "https://xk.fudan.edu.cn/xk/stdElectCourse!innerIndex.action?projectId=1"
     }
 }

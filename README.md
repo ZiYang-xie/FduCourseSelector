@@ -27,6 +27,8 @@ pip install -r requirements.txt
 }
 ```
 
+- 如果修读了二专，请将 config/account.json 中 SecondMajor 的值修改为`1`
+
 #### Step3: 填入课程信息
 - 在 config/lesson.json 中输入想要选择的课程代码
 

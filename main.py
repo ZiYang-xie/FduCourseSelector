@@ -20,6 +20,7 @@ class CourseSearcher(CookieGetter):
         self.baseUrl = URL_DICT['BASE_URL']
         self.selCourseUrl = URL_DICT['SELECT_COURSE']
         self.captchaUrl = URL_DICT["CAPTCHA"]
+        self.secondMajorUrl = URL_DICT["SECONDMAJOR_PAGE"]
         
         self.baseUrl = self.addProfParam(self.baseUrl)
         self.selCourseUrl = self.addProfParam(self.selCourseUrl)
@@ -76,6 +77,14 @@ class CourseSearcher(CookieGetter):
             cookies=self.cookies,
             ErrMsg="Get Main Page Error (getCourseNoAndId) Get"
         )
+
+        if self.secondMajor == 1:
+            self.Get(
+                url=self.secondMajorUrl,
+                cookies=self.cookies,
+                ErrMsg="Get Second Major Page Error (getCourseNoAndId) Get"
+            )
+
         self.Post(
             url=self.mainUrl,
             cookies=self.cookies,

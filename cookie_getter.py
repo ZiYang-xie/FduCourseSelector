@@ -12,7 +12,7 @@ class CookieGetter(Request):
         self.xkUrl = URL_DICT['XK']
         self.defaultPage = URL_DICT['MAIN_PAGE']
         self.url = URL_DICT['BASE_URL']
-        self.username, self.password = ReadAccountJson()
+        self.username, self.password, self.secondMajor = ReadAccountJson()
         self.selCourseParams = PayloadGetter('selCourseParams')
         self.selCourseParams['username'], self.selCourseParams['password']  = self.username, self.password
         

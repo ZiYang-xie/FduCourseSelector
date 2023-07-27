@@ -3,8 +3,8 @@ name: Daily Software Run
 on:
   workflow_dispatch:  # 配置 workflow_dispatch 事件
   schedule:
-    - cron: '1 59 * * *' # 在每天的2:00 AM (UTC) / 10:00 AM (CST) 运行软件
-    - cron: '4 59 * * *' # 在每天的5:00 AM (UTC) / 13:00 PM (CST) 运行软件
+    - cron: '59 1 * * *' # 在每天的2:00 AM (UTC) / 10:00 AM (CST) 运行软件
+    - cron: '59 4 * * *' # 在每天的5:00 AM (UTC) / 13:00 PM (CST) 运行软件
 jobs:
   build:
     runs-on: ubuntu-latest

@@ -69,10 +69,10 @@ def ReadAccountJson():
 
 def ReadLessonJson():
     json_data = ReadJson('./config/lesson.json')
-    lessonList = json_data['LessonID']
+    lessonList, semester = (json_data['LessonID'], json_data['Semester'])
     if(len(lessonList) == 0):
         raise Exception('请在 data/lesson.json 中输入想要选择的课程ID')
-    return lessonList
+    return (lessonList, semester)
 
 def ServiceGetter(service_field):
     json_data = ReadJson('./config/service.json')
@@ -103,6 +103,21 @@ def isCourseAvailable(raw_str, lessonNo):
     for class_tuple in res:
         if lessonNo == class_tuple[0]:
             return int(class_tuple[1]) < int(class_tuple[2])
+
+def extract_output_text(text):
+    # 使用正则表达式提取框内部的内容
+    div_pattern = re.compile(r'<div[^>]*?font-family:\'微软雅黑\'[^>]*?>(.*?)<\/div>', re.DOTALL)
+    match = div_pattern.search(text)
+    if match:
+        input_text = match.group(1).strip()
+        # 去除其中的HTML标签
+        clean_pattern = re.compile(r'<.*?>')
+        input_text = re.sub(clean_pattern, '', input_text)
+        # 去除多余的空行和指定的字符串
+        input_text = re.sub(r'\s+', ' ', input_text)
+        return input_text.strip()
+    else:
+        return ""
 
 if __name__ == '__main__':
     import time

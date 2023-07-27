@@ -29,7 +29,7 @@ class CourseSearcher(CookieGetter):
         self.main_page_data = PayloadGetter('mainPageData')
         self.captcha_ret_data = PayloadGetter('captcha_ret')
         self.main_page_data['electionProfile.id'] = profileId
-        self.courseIdList = ReadLessonJson()
+        self.courseIdList = ReadLessonJson()[0]
         self.cookies = self.getCookies()
         
     def RunScript(self):
@@ -110,7 +110,8 @@ class CourseSearcher(CookieGetter):
         else:
             raise NotImplementedError
         return captcha_response
-                
+    
+
     # 抢课（捡漏）
     def selCourse(self, course_no):
         captcha_response = self.handleCAPTCHA()
@@ -125,8 +126,9 @@ class CourseSearcher(CookieGetter):
             data=form_data,
             ErrMsg="selCourse Error (selCourse)"
         )
-        #print(response.content.decode(encoding='utf-8'))
-        print("选课成功")
+        result = response.content.decode(encoding='utf-8')
+        cleaned_text = extract_output_text(result)
+        print(cleaned_text)
         
     def getCaptcha(self):
         param = {'_':int(time.time())}

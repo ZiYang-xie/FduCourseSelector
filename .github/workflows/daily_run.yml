@@ -1,0 +1,23 @@
+name: Daily Software Run
+
+on:
+  workflow_dispatch:  # 配置 workflow_dispatch 事件
+  schedule:
+    - cron: '1 59 * * *' # 在每天的2:00 AM (UTC) / 10:00 AM (CST) 运行软件
+    - cron: '4 59 * * *' # 在每天的5:00 AM (UTC) / 13:00 PM (CST) 运行软件
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout codes
+        uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.10'
+      - name: Prepare environment
+        run: pip install -r requirements.txt
+      - name: Run app
+        run: python main.py 
+
+          

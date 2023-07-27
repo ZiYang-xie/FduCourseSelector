@@ -11,7 +11,7 @@ from utils import *
 _, URL_DICT = ReadNetWorkJson()
 
 class CourseSearcher(CookieGetter):
-    def __init__(self, profileId=2224, CAPTCHA_TYPE='slide'): # This param will change with the semester
+    def __init__(self, profileId=ReadLessonJson()[1], CAPTCHA_TYPE='slide'): # This param will change with the semester
         super(CourseSearcher, self).__init__()
         self.profileId = profileId
         self.CAPTCHA_TYPE = CAPTCHA_TYPE

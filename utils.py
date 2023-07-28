@@ -21,7 +21,8 @@ class Request:
                 data=data,
                 params=params,
                 allow_redirects=allow_redirects,
-                timeout=timeout)  
+                timeout=timeout,
+                verify=False)  
             req.raise_for_status()
         except requests.exceptions.RequestException as e:
             if ErrMsg:
@@ -38,7 +39,8 @@ class Request:
                 cookies=cookies,
                 params=params,
                 allow_redirects=allow_redirects,
-                timeout=timeout)  
+                timeout=timeout,
+                verify=False)  
             req.raise_for_status()
         except requests.exceptions.RequestException as e:
             if ErrMsg:
